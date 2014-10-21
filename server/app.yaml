@@ -1,0 +1,47 @@
+application: evcalc-app
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+# default_expiration: "30d"
+default_expiration: "0m"
+
+handlers:
+  # - url: /favicon.ico
+  #   static_files: public/img/favicon.ico
+  #   upload: public/img/favicon.ico
+
+  # - url: /img
+  #   static_dir: public/img
+
+  # - url: /css
+  #   mime_type: text/css
+  #   static_dir: public/css
+
+  # - url: /js
+  #   static_dir: public/js
+
+  # - url: /fonts
+  #   static_dir: public/fonts
+
+  - url: /sounds
+    static_dir: dist/sounds
+    expiration: "30d"
+
+  - url: /images
+    static_dir: dist/images
+    expiration: "30d"
+
+  - url: /assets
+    static_dir: dist/assets
+    expiration: "30d"
+
+  - url: .*
+    static_files: dist/index.html
+    upload: dist/index.html
+    expiration: "0m"
+
+libraries:
+  - name: webapp2
+    version: "latest"
